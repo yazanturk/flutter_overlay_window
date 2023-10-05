@@ -74,6 +74,7 @@ public class FlutterOverlayWindowPlugin implements
                 result.success(true);
             }
         } else if (call.method.equals("showOverlay")) {
+            if (OverlayService.isRunning) return;
             if (!checkOverlayPermission()) {
                 result.error("PERMISSION", "overlay permission is not enabled", null);
                 return;
